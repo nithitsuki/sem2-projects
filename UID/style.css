@@ -8,21 +8,24 @@
 body {
     font-family: Arial, sans-serif;
 }
+
 img {
     height: 50%;
 }
+
 /* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #333;
-    padding: 10px 20px;
+    padding: 10px 30px; /* Increased padding for height */
+    height: 60px; /* Adjusted height to match yellow bar */
     color: white;
 }
 
 .navbar .logo {
-    font-size: 24px;
+    font-size: 40px; /* Increased font size */
     font-weight: bold;
 }
 
@@ -33,25 +36,28 @@ img {
 }
 
 .navbar .burger-menu .line {
-    width: 25px;
-    height: 3px;
+    width: 40px; /* Increased width */
+    height: 5px; /* Increased thickness */
     background-color: white;
-    margin: 3px 0;
+    margin: 6px 0;
 }
 
 .navbar .nav-links {
     list-style: none;
     display: flex;
+    gap: 0px; /* Added space between links */
+    margin: 0px;
 }
 
 .navbar .nav-links li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 .navbar .nav-links a {
     text-decoration: none;
-    color: white;
-    font-size: 16px;
+    color: orangered;
+    font-size: 28px; /* Increased font size */
+    padding: 15px 20px; /* Adjusted padding */
 }
 
 /* Slideshow Styling */
@@ -92,8 +98,22 @@ img {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar {
+        height: 100px; /* Slightly smaller for mobile */
+        padding: 15px 20px;
+    }
+
+    .navbar .logo {
+        font-size: 30px; /* Adjusted for smaller screens */
+    }
+
     .navbar .burger-menu {
         display: flex;
+    }
+
+    .navbar .burger-menu .line {
+        width: 30px;
+        height: 4px;
     }
 
     .navbar .nav-links {
@@ -101,14 +121,17 @@ img {
         flex-direction: column;
         background-color: #333;
         position: absolute;
-        top: 60px;
+        top: 100px;
         right: 0;
-        width: 150px;
+        width: 180px;
     }
 
     .navbar .nav-links li {
-        margin: 10px 0;
+        margin: 15px 0;
     }
 
-
+    .navbar .nav-links a {
+        font-size: 24px; /* Adjusted for mobile */
+        padding: 10px 15px;
+    }
 }

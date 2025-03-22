@@ -135,3 +135,52 @@ img {
         padding: 10px 15px;
     }
 }
+/* Content Section */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Box Styling */
+.box {
+    flex: 1;
+    padding: 20px;
+    color: white;
+}
+
+/* Image Styling */
+.image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+/* Text Styling */
+.text {
+    background: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Alternate Image and Text Layout */
+.row:nth-child(odd) {
+    flex-direction: row;  /* Image on the left, text on the right */
+}
+
+.row:nth-child(even) {
+    flex-direction: row-reverse; /* Image on the right, text on the left */
+}

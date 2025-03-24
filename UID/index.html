@@ -2,171 +2,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Website</title>
-    <link rel="stylesheet" href="static/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monza Motors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css" />
 </head>
 
-<body>
-    <header>
-        <nav class="bg-[#333] border-gray-00 px-4 lg:px-6 py-2 dark:bg-gray-800 text-2xl text-white">
-            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <a href="#" class="flex items-center">
-                    <h2>Monza Motors</h2>
-                </a>
-                <div class="flex items-center lg:order-2">
-                    <button data-collapse-toggle="mobile-menu-2" type="button"
-                        class="inline-flex items-center p-2 ml-1 text-sm text-white-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                        <li>
-                            <a href="#"
-                                class="block py-2 flex justify-center pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block flex justify-center py-2 pr-4 pl-3 text-white-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Cars</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 flex justify-center pr-4 pl-3 text-white-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-white-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About
-                                Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Slideshow -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-                <img src="static/imgs/cars-slideshow/Aston Martin Vulcan 15 fix.jpg" alt="AM VULCAN" />
-            </div>
-            <div class="swiper-slide">
-                <img src="static/imgs/cars-slideshow/mazda-mx5-mk1-headlights-pop-up-fixd.webp" alt="MAXDA MX-5" />
-            </div>
-            <div class="swiper-slide">
-                <img src="static/imgs/cars-slideshow/f12-berlinetta fixed.webp" alt="f12-berlinetta" />
-            </div>
-            <div class="swiper-slide">
-                <img src="static/imgs/cars-slideshow/Porsche_918Spyder_Garage_fixd.webp" alt="918 spyder" />
-            </div>
-            <div class="swiper-slide">
-                <img src="static/imgs/cars-slideshow/naran_hc_fixd.webp" alt="Naran Hyper Coupe" />
-            </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1 ">
+    <div class="container-xxl">
+      <a class="navbar-brand" href="/index.html"><b>Monza Motors</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cars.html">Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about-us.html">About Us</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <body>
-        <br />
-        <hr />
-        <h1 class="section-title">Our Cars</h1>
-        <hr />
-        <br />
-      
-        <div class="car-container justify-start">
-          <img src="static/imgs/cars-slideshow/Aston Martin Vulcan 15 fix.jpg" alt="Left-aligned Image" class="car-image" data-aos="fade-right" data-aos-offset="0" />
-          <div class="car-details">
-            <h2 class="car-title">Aston Martin Vulcan</h2>
-            <ul class="car-list">
-              <li>Track-only supercar with a naturally aspirated 7.0-liter V12 engine producing over 800 horsepower.</li>
-              <li>Aggressive aerodynamic design and carbon fiber body for enhanced performance.</li>
-              <li>Limited production run of just 24 units, making it highly exclusive.</li>
-              <li>Introduced in 2015 as part of Aston Martin's celebration of motorsport heritage.</li>
-              <li>Includes exclusive track days with professional driver training for owners.</li>
-            </ul>
-          </div>
-        </div>
-      
-        <div class="car-container justify-end">
-          <div class="car-details">
-            <h2 class="car-title">Ferrari F12 Berlinetta</h2>
-            <ul class="car-list">
-              <li>Front-engine, rear-wheel-drive grand tourer with a 6.3-liter V12 engine producing 730 horsepower.</li>
-              <li>Accelerates from 0 to 60 mph in 3.1 seconds with a top speed of 211 mph.</li>
-              <li>Advanced aerodynamics include active cooling ducts and an integrated rear spoiler.</li>
-              <li>Introduced in 2012 as Ferrari's flagship GT model.</li>
-              <li>Blends performance, luxury, and cutting-edge technology.</li>
-            </ul>
-          </div>
-          <img src="static/imgs/cars-slideshow/f12-berlinetta fixed.webp" alt="Right-aligned Image" class="car-image" data-aos="fade-left" data-aos-offset="0" />
-        </div>
-        <div class="car-container justify-start">
-            <img src="static/imgs/cars-slideshow/mazda-mx5-mk1-headlights-pop-up-fixd.webp" alt="Left-aligned Image" class="car-image" data-aos="fade-right" data-aos-offset="0" />
-            <div class="car-details">
-              <h2 class="car-title">Mazda MX-5 Miata MK1</h2>
-              <ul class="car-list">
-                <li>Lightweight, rear-wheel-drive roadster introduced in 1989.</li>
-                <li>Iconic pop-up headlights and minimalist design emphasize simplicity and fun.</li>
-                <li>Powers from a 1.6-liter or optional 1.8-liter engine, prioritizing handling over power.</li>
-                <li>Sold over a million units worldwide, becoming the best-selling two-seater sports car.</li>
-                <li>Embodies the "Jinba Ittai" philosophy: horse and rider as one.</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="car-container justify-end">
-            <div class="car-details">
-              <h2 class="car-title">Naran Hyper Coupe</h2>
-              <ul class="car-list">
-                <li>Limited-production hypercar powered by a twin-turbocharged V8 engine producing over 1,000 horsepower.</li>
-                <li>Accelerates from 0 to 60 mph in under 2.3 seconds with advanced all-wheel drive.</li>
-                <li>Sleek, aggressive design inspired by fighter jets for maximum aerodynamic efficiency.</li>
-                <li>Luxurious interior crafted with premium materials for ultimate comfort.</li>
-                <li>Only 49 units will be produced, ensuring exclusivity for collectors.</li>
-              </ul>
-            </div>
-            <img src="static/imgs/cars-slideshow/naran_hc_fixd.webp" alt="Right-aligned Image" class="car-image" data-aos="fade-left" data-aos-offset="0" />
-          </div>
-          
-          <div class="car-container justify-start">
-            <img src="static/imgs/cars-slideshow/Porsche_918Spyder_Garage_fixd.webp" alt="Left-aligned Image" class="car-image" data-aos="fade-right" data-aos-offset="0" />
-            <div class="car-details">
-              <h2 class="car-title">Porsche 918 Spyder</h2>
-              <ul class="car-list">
-                <li>Plug-in hybrid hypercar combining a 4.6-liter V8 engine with two electric motors for 887 horsepower.</li>
-                <li>Accelerates from 0 to 60 mph in 2.5 seconds with a top speed of 214 mph.</li>
-                <li>Set a lap record at the Nürburgring, showcasing its track-focused engineering.</li>
-                <li>Introduced in 2013 as part of Porsche's "Holy Trinity" of hybrid hypercars.</li>
-                <li>Represents innovation in electrification and high-performance automotive technology.</li>
-              </ul>
-            </div>
-          </div>
+  </nav>
+</header>
 
+<body>
+  <!-- Slideshow -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <img src="static/imgs/cars-slideshow/Aston Martin Vulcan 15 fix.jpg" alt="AM VULCAN" />
+      </div>
+      <div class="swiper-slide">
+        <img src="static/imgs/cars-slideshow/mazda2.png" alt="MAXDA MX-5" />
+      </div>
+      <div class="swiper-slide">
+        <img src="static/imgs/cars-slideshow/f12-berlinetta fixed.webp" alt="f12-berlinetta" />
+      </div>
+      <div class="swiper-slide">
+        <img src="static/imgs/cars-slideshow/Porsche_918Spyder_Garage_fixd.webp" alt="918 spyder" />
+      </div>
+      <div class="swiper-slide">
+        <img src="static/imgs/cars-slideshow/naran_hc_fixd.webp" alt="Naran Hyper Coupe" />
+      </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <body>
+    <br />
+    <hr />
+    <h1 class="section-title">Our Cars</h1>
+    <hr />
+    <br />
+
+    <div class="car-container justify-start">
+      <img src="static/imgs/cars-slideshow/Aston Martin Vulcan 15 fix.jpg" alt="Left-aligned Image" class="car-image"
+        data-aos="fade-right" data-aos-offset="0" />
+      <div class="car-details">
+        <h2 class="car-title">Aston Martin Vulcan</h2>
+        <ul class="car-list">
+          <li>Track-only supercar with a naturally aspirated 7.0-liter V12
+            engine producing over 800 horsepower.</li>
+          <li>Aggressive aerodynamic design and carbon fiber body for enhanced
+            performance.</li>
+          <li>Limited production run of just 24 units, making it highly
+            exclusive.</li>
+          <li>Introduced in 2015 as part of Aston Martin's celebration of
+            motorsport heritage.</li>
+          <li>Includes exclusive track days with professional driver training
+            for owners.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="car-container justify-end">
+      <div class="car-details">
+        <h2 class="car-title">Ferrari F12 Berlinetta</h2>
+        <ul class="car-list">
+          <li>Front-engine, rear-wheel-drive grand tourer with a 6.3-liter V12
+            engine producing 730 horsepower.</li>
+          <li>Accelerates from 0 to 60 mph in 3.1 seconds with a top speed of
+            211 mph.</li>
+          <li>Advanced aerodynamics include active cooling ducts and an
+            integrated rear spoiler.</li>
+          <li>Introduced in 2012 as Ferrari's flagship GT model.</li>
+          <li>Blends performance, luxury, and cutting-edge technology.</li>
+        </ul>
+      </div>
+      <img src="static/imgs/cars-slideshow/f12-berlinetta fixed.webp" alt="Right-aligned Image" class="car-image"
+        data-aos="fade-left" data-aos-offset="0" />
+    </div>
+    <div class="car-container justify-start">
+      <img src="static/imgs/cars-slideshow/mazda-mx5-mk1-headlights-pop-up-fixd.webp" alt="Left-aligned Image"
+        class="car-image" data-aos="fade-right" data-aos-offset="0" />
+      <div class="car-details">
+        <h2 class="car-title">Mazda MX-5 Miata MK1</h2>
+        <ul class="car-list">
+          <li>Lightweight, rear-wheel-drive roadster introduced in 1989.</li>
+          <li>Iconic pop-up headlights and minimalist design emphasize
+            simplicity and fun.</li>
+          <li>Powers from a 1.6-liter or optional 1.8-liter engine,
+            prioritizing handling over power.</li>
+          <li>Sold over a million units worldwide, becoming the best-selling
+            two-seater sports car.</li>
+          <li>Embodies the "Jinba Ittai" philosophy: horse and rider as
+            one.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="car-container justify-end">
+      <div class="car-details">
+        <h2 class="car-title">Naran Hyper Coupe</h2>
+        <ul class="car-list">
+          <li>Limited-production hypercar powered by a twin-turbocharged V8
+            engine producing over 1,000 horsepower.</li>
+          <li>Accelerates from 0 to 60 mph in under 2.3 seconds with advanced
+            all-wheel drive.</li>
+          <li>Sleek, aggressive design inspired by fighter jets for maximum
+            aerodynamic efficiency.</li>
+          <li>Luxurious interior crafted with premium materials for ultimate
+            comfort.</li>
+          <li>Only 49 units will be produced, ensuring exclusivity for
+            collectors.</li>
+        </ul>
+      </div>
+      <img src="static/imgs/cars-slideshow/naran_hc_fixd.webp" alt="Right-aligned Image" class="car-image"
+        data-aos="fade-left" data-aos-offset="0" />
+    </div>
+
+    <div class="car-container justify-start">
+      <img src="static/imgs/cars-slideshow/Porsche_918Spyder_Garage_fixd.webp" alt="Left-aligned Image"
+        class="car-image" data-aos="fade-right" data-aos-offset="0" />
+      <div class="car-details">
+        <h2 class="car-title">Porsche 918 Spyder</h2>
+        <ul class="car-list">
+          <li>Plug-in hybrid hypercar combining a 4.6-liter V8 engine with two
+            electric motors for 887 horsepower.</li>
+          <li>Accelerates from 0 to 60 mph in 2.5 seconds with a top speed of
+            214 mph.</li>
+          <li>Set a lap record at the Nürburgring, showcasing its
+            track-focused engineering.</li>
+          <li>Introduced in 2013 as part of Porsche's "Holy Trinity" of hybrid
+            hypercars.</li>
+          <li>Represents innovation in electrification and high-performance
+            automotive technology.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Random ahh scripts that need to be imported  -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script src="index.js"></script>
-</body>
+  </body>
 
 </html>

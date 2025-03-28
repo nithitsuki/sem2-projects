@@ -1,19 +1,86 @@
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monza Motors</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .speedometer {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            border: 5px solid #1f2f3f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -150px;
+            right:-10px
+        }
+        .needle {
+            position: absolute;
+            width: 5px;
+            height: 50px;
+            background: black;
+            transform-origin: bottom center;
+            transform: rotate(-130deg);
+            animation: sweep 3s ease-in-out forwards;
+            color:red;
+        }
+        @keyframes sweep {
+            from {
+                transform: rotate(-130deg);
+            }
+            to {
+                transform: rotate(45deg);
+            }
+        }
+        .brand {
+            font-size: 36px;
+            font-weight: bold;
+            font-family: 'Crimson Text', serif;
+        }
+        .tagline {
+            font-size: 16px;
+            font-family: "Great vibes", cursive;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <img src="C:\users\91971\Pictures\Screenshots\mm.png" alt="Monza Motors Logo" width="400">
-        <div class="meter">⚡</div>
+        <div class="speedometer">
+            <div class="needle"></div>
+        </div>
+        <div class="brand">MONZA MOTORS</div>
+        <div class="tagline">its good to be bad</div>
     </div>
     <script>
         setTimeout(() => {
+            document.body.style.opacity = "0";
+        }, 2500);
+        
+        setTimeout(() => {
             window.location.href = "index.html"; // Change to your actual homepage
-        }, 3000);
+        }, 3500);
     </script>
 </body>
 </html>
+

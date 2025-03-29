@@ -1,3 +1,33 @@
+# Monza Motors Development Roadmap
+
+## Team Responsibilities
+
+- **Lohit**: Design pages and overall site aesthetics, provide design elements for the code, design the integration engine revving and music.
+- **Aditi**: Code the main web pages ( `car-catalogue` and `about-us` ) with guidance from Lohit.
+- **Ramesh**: Develop the customizer page, add to it, fix bugs.
+- **All Members**: Contribute to logo creation, find images and content for the main page.
+
+---
+
+## Milestones
+
+### Phase 1: Planning & Design
+
+- design car-catalogue and about-us
+- Find Logo, Images for Main Page
+
+### Phase 2: Development
+
+- Start coding the car-catalogue and about-us
+
+### Phase 3: Testing & Debugging
+
+- Make sure everything looks perfect
+- ask others for suggestions
+- fix bugs if any
+
+---
+
 # Resources Used for Building This Site
 
 This project leveraged several powerful tools and libraries to create a modern, responsive, and visually appealing website. Below is a list of the resources used:
@@ -6,19 +36,13 @@ This project leveraged several powerful tools and libraries to create a modern, 
   A versatile AI assistant that provided guidance and solutions during development.\
   made almost everything, including this readme file
 
-- **Flowbite**: [Flowbite.com](https://flowbite.com)  
-  A library of interactive components built on top of Tailwind CSS, used for UI elements and design consistency.\
-  Used for the Navbar
-
-- **Tailwind CSS**: [Tailwindcss.com](https://tailwindcss.com)  
-  A utility-first CSS framework that enabled rapid and customizable styling.\
-  garbage, needs to be removed asap
-
 - **Swiper.js**: [Swiperjs.com](https://swiperjs.com)  
   A modern and touch-friendly image carousel library used for creating dynamic sliders.
 
 - **Animate On Scroll (AOS)**: [AOS Documentation](https://michalsnik.github.io/aos)  
   A lightweight library for adding scroll-triggered animations to elements.
+
+bootstrap (eh)
 
 ---
 

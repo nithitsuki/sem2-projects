@@ -49,16 +49,32 @@
 
 
 <body>
+  <div class="position-fixed top-0 pt-5 end-0 m-3">
+    <select id="carSelector" class="form-select">
+      <option value="ferrariF12">Ferrari F12</option>
+      <option value="porsche918">Porsche 918</option>
+      <option value="naranHyperCoupe">Naran Hyper Coupe</option>
+      <option value="astonMartinVulcan">Aston Martin Vulcan</option>
+      <option value="mazdaMiata">Mazda Miata</option>
+      <option value="rollsRoyceGhost">Rolls Royce Ghost</option>
+    </select>
+  </div>
+  
   <div class="position-fixed top-50 end-0 translate-middle-y me-3">
+    <!-- Outer container styled with Bootstrap -->
+    <div class="bg-secondary bg-opacity-75 rounded-3 p-3 shadow-sm" style="width: 240px;">
+      <div id="colorPickerContainer" style="width: 300px; height: 300px;"></div>
+    </div>
+  </div>
 
-<div id="colorPickerContainer" style="width: 300px; height: 300px;"></div>  
-  </div>  
+
+    
     <!-- Random ahh scripts that need to be imported  -->
     <script src="static/libs/scripts/bootstrap.bundle.min.js"></script>
     <script src="static/libs/scripts/aos.js"></script>
-    <script src="static/index.js"></script>
+    <!-- <script src="static/index.js"></script> -->
     <script src="static/customizer.js" type="module"></script><script src="static/libs/scripts/iro.min.js"></script>
-
+    
   </body>
 
 </html>

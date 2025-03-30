@@ -2,8 +2,8 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js"; // Import GLTFLoader directly
 import { RGBELoader } from "three/addons/loaders/RGBELoader.js"; // Import RGBELoader for HDRI
 import { OrbitControls } from "three/addons/controls/OrbitControls.js"; // Import OrbitControls
-let carModel;
 
+//Default variables
 const cars = {
   ferrariF12: {
     path: "static/3D-Models/2013_ferrari_f12_berlinetta.glb",
@@ -11,6 +11,7 @@ const cars = {
       "bodyKit0_Paint_Geo_lodA_Ferrari_F12berlinetta_2014Paint_Material_0",
     scale: 100,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Ferrari F12
+    default_color: "#ffffff",
   },
   porsche918: {
     path: "static/3D-Models/2015_porsche_918_spyder.glb",
@@ -18,6 +19,7 @@ const cars = {
       "pKit1_Paint_Geo_lodA_Kit1_Paint_Geo_lodA_Porsche_918SpyderRewardRecycled_2015Paint_Material_pPorsche_918SpyderRewardRecycled_2015Paint_Material1_0",
     scale: 100,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Porsche 918
+    default_color: "#ffffff",
   },
   naranHyperCoupe: {
     path: "static/3D-Models/2020_naran_hyper_coupe.glb",
@@ -25,18 +27,21 @@ const cars = {
       "Naran_Hyper_Coupe_carobjcarpaint_chassis_UV2_Untitled_030_Default_Carpaint_0",
     scale: 100,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Naran Hyper Coupe
+    default_color: "#ffffff",
   },
   astonMartinVulcan: {
     path: "static/3D-Models/aston_martin_vulcan.glb",
     exterior_name: "LOD_A_HOOD_mm_ext001_CAR_PAINT_0",
     scale: 1,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Aston Martin Vulcan
+    default_color: "#ffffff",
   },
   mazdaMiata: {
     path: "static/3D-Models/mazda_miata_mx-5.glb",
     exterior_name: "RLA_miata_headlight_R_popup_RRpbrPaintPrimary_0",
     scale: 1,
     offset: { x: 0, y: -0.1, z: 0 }, // Offset values for Mazda Miata
+    default_color: "#ffffff",
   },
   rollsRoyceGhost: {
     path: "static/3D-Models/rolls-royce_ghost.glb",
@@ -46,34 +51,17 @@ const cars = {
     },
     scale: 1,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Rolls Royce Ghost
+    default_color: "#ffffff",
   },
 };
+let garage_name = "static/3D-Models/parking_garage.glb";
+let current_car = cars[document.getElementById("carSelector").value];
 
-// Ferrari_F12berlinetta_2014Paint_Material
-let current_car = cars.porsche918;
+// "3D" Models
+let current_car_model;
+let garageModel;
 
-function loadCarModel(car, scene, loader) {
-  if (!car || !car.path) {
-    console.error("Invalid car object or missing 'path' property.");
-    return;
-  }
-  // Load the model using the provided loader
-  loader.load(
-    car.path, // Path to the GLB file
-    (gltf) => {
-      carModel = gltf.scene;
-      console.log("Model loaded:", carModel);
-      carModel.scale.set(car.scale, car.scale, car.scale); // Adjust scale
-      carModel.position.set(car.offset.x, car.offset.y, car.offset.z); // Adjust position
-      scene.add(carModel);
-    },
-    undefined, // Progress callback (not used here)
-    (error) => {
-      console.error("Error loading model:", error);
-    }
-  );
-}
-// Scene, Camera, Renderer
+// THREE JS BASIC CODE
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -89,6 +77,10 @@ document.body.appendChild(renderer.domElement);
 // Add OrbitControls for camera interaction
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Smooth movement
+controls.minPolarAngle = 0;
+controls.maxPolarAngle = Math.PI / 2.2;
+controls.minDistance = 4;
+controls.maxDistance = 6;
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Soft white light
@@ -97,20 +89,33 @@ scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Bright directional light
 directionalLight.position.set(0, 3, 0); // Position the light
 scene.add(directionalLight);
-const lightHelper = new THREE.DirectionalLightHelper(directionalLight, 1); // Size of the helper
-scene.add(lightHelper);
+
 
 // Load HDRI Environment Map
 const rgbeLoader = new RGBELoader();
 rgbeLoader.load("static/HDR environment/creepy_bathroom_4k.hdr", (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping; // Use reflection mapping
   scene.environment = texture; // Apply the environment map to the scene
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  // Apply the texture to the scene environment (for lighting and reflections)
+  scene.environment = texture;
+  // Set the texture as the scene background
+  scene.background = texture;
 });
 
-let garageModel;
+// Camera Position
+camera.position.set(1.5, 1.5, 2.2);
+
+// Handle Window Resize
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
 const loader = new GLTFLoader();
 loader.load(
-  "static/3D-Models/parking_garage.glb", // Replace with your garage model path
+  garage_name, // Replace with your garage model path
   (gltf) => {
     garageModel = gltf.scene;
     console.log("Garage model loaded:", garageModel); // Debug log
@@ -124,103 +129,53 @@ loader.load(
   }
 );
 
-// Load the car model
-loadCarModel(current_car, scene, loader);
+// OPTIONAL HELPERS
+// const gridHelper = new THREE.GridHelper(10, 10);
+// gridHelper.position.y = -0.01;
+// scene.add(gridHelper);
+// const lightHelper = new THREE.DirectionalLightHelper(directionalLight, 1); // Size of the helper
+// scene.add(lightHelper);
 
-// Camera Position
-camera.position.set(1.5, 1.5, 2.2); // Adjust camera position
-
-const gridHelper = new THREE.GridHelper(10, 10); // Size: 10 units, Divisions: 10
-gridHelper.position.y = -0.01; // Slightly below the ground plane to avoid z-fighting
-scene.add(gridHelper);
-
-// Animation Loop
-function animate() {
-  requestAnimationFrame(animate);
-  controls.update(); // Update OrbitControls
-  renderer.render(scene, camera);
-}
-animate();
-
-// Handle Window Resize
-window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-function changeCarColor(car, carModel, color) {
-  if (!car || !carModel) {
-    console.error("Invalid car object or car model is not loaded.");
-    return;
-  }
-
-  // Ensure the color is a valid THREE.Color
-  const newColor = new THREE.Color(color);
-
-  // Traverse the car model to find matching materials
-  carModel.traverse((child) => {
-    // Check if the child is a mesh and matches the exterior name
-    if (child.isMesh && matchesExteriorName(child.name, car.exterior_name)) {
-      // Update the material color
-      if (child.material) {
-        child.material.color.set(newColor); // Apply the new color
-        child.material.needsUpdate = true; // Ensure the material updates in the renderer
-      }
-    }
-  });
-}
-
-/**
- * Helper function to check if a name matches the exterior_name property.
- *
- * @param {string} name - The name of the mesh to check.
- * @param {string|Object} exteriorName - The exterior_name property from the car object.
- * @returns {boolean} - Whether the name matches the exterior_name.
- */
-function matchesExteriorName(name, exteriorName) {
-  if (typeof exteriorName === "string") {
-    // Single exterior name
-    return name === exteriorName;
-  } else if (typeof exteriorName === "object") {
-    // Multiple exterior names (e.g., { 1: "name1", 2: "name2" })
-    return Object.values(exteriorName).some((exterior) => name === exterior);
-  }
-  return false;
-}
-
+// IRO CONFIG START 
 const colorPicker = new iro.ColorPicker("#colorPickerContainer", {
   width: 200,
-  color: "#ffffff", // Default color
+  color: "#ffffff",
   layout: [
     { component: iro.ui.Wheel },
-    // { component: iro.ui.Slider, options: { sliderType: 'alpha' } },
     { component: iro.ui.Slider, options: { sliderType: "saturation" } },
     { component: iro.ui.Slider, options: { sliderType: "value" } },
   ],
 });
+// IRO CONFIG END
 
-// Event Listener for Color Change
-colorPicker.on("color:change", (color) => {
-  const hexColor = color.hexString;
 
-  // Ensure the car model is loaded before attempting to change its color
-  if (!carModel) {
-    console.error("Car model is not loaded yet.");
+// Function to load/unload the current car model
+function load_current_car_model(car, scene, loader) {
+  if (!car || !car.path) {
+    console.error("Invalid car object or missing 'path' property.");
     return;
   }
+  // Load the model using the provided loader
+  loader.load(
+    car.path, // Path to the GLB file
+    (gltf) => {
+      current_car_model = gltf.scene;
+      console.log("Model loaded:", current_car_model);
+      current_car_model.scale.set(car.scale, car.scale, car.scale); // Adjust scale
+      current_car_model.position.set(car.offset.x, car.offset.y, car.offset.z); // Adjust position
+      scene.add(current_car_model);
+    },
+    undefined, // Progress callback (not used here)
+    (error) => {
+      console.error("Error loading model:", error);
+    }
+  );
+}
 
-  // Call the changeCarColor function with the correct arguments
-  changeCarColor(current_car, carModel, hexColor);
-});
-
-// Scene, Camera, Renderer, etc. remain unchanged...
-
-// Function to unload the current car model
-function unloadCarModel(scene, carModel) {
-  if (carModel) {
+function unload_current_car_model(scene, current_car_model) {
+  if (current_car_model) {
     // Traverse the car model and dispose of its resources
-    carModel.traverse((child) => {
+    current_car_model.traverse((child) => {
       if (child.isMesh) {
         // Dispose of geometry
         if (child.geometry) {
@@ -242,26 +197,84 @@ function unloadCarModel(scene, carModel) {
         }
       }
     });
-
     // Remove the car model from the scene
-    scene.remove(carModel);
-
+    scene.remove(current_car_model);
     // Clear the reference to the car model
-    carModel = null;
-
+    current_car_model = null;
     console.log("Car model unloaded and resources disposed.");
   }
 }
 
-document.getElementById("carSelector").addEventListener("change", (event) => {
+function changeCarColor(car, current_car_model, color) {
+  if (!car || !current_car_model) {
+    console.error("Invalid car object or car model is not loaded.");
+    return;
+  }
+
+  // Ensure the color is a valid THREE.Color
+  const newColor = new THREE.Color(color);
+
+  // Traverse the car model to find matching materials
+  current_car_model.traverse((child) => {
+    // Check if the child is a mesh
+    if (child.isMesh) {
+      let matchesExterior = false;
+      if (typeof car.exterior_name === "string") {
+        // Single exterior name
+        matchesExterior = child.name === car.exterior_name;
+      } else if (typeof car.exterior_name === "object") {
+        // Multiple exterior names (e.g., { 1: "name1", 2: "name2" })
+        matchesExterior = Object.values(car.exterior_name).some(
+          (exterior) => child.name === exterior
+        );
+      }
+
+      if (matchesExterior && child.material) {
+        child.material.color.set(newColor); // Apply the new color
+        child.material.needsUpdate = true; // Ensure the material updates in the renderer
+      }
+    }
+  });
+}
+
+// Function to handle car selection (can be reused for both events)
+function handleCarSelection(event) {
   const selectedCarKey = event.target.value; // Get the selected car key
   const selectedCar = cars[selectedCarKey]; // Get the corresponding car object
+
   if (!selectedCar) {
     console.error("Invalid car selection.");
     return;
   }
-  unloadCarModel(scene, carModel);
-  loadCarModel(selectedCar, scene, loader);
-  current_car = selectedCar;
+
+  unload_current_car_model(scene, current_car_model); // Unload the current car model
+  load_current_car_model(selectedCar, scene, loader); // Load the new car model
+  current_car = selectedCar; // Update the current car reference
   console.log(`Switched to car: ${selectedCarKey}`);
+}
+
+// Animation Loop
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update(); // Update OrbitControls
+  renderer.render(scene, camera);
+}
+animate();
+
+// Add event listener for when the user changes the car selection
+document.getElementById("carSelector").addEventListener("change", handleCarSelection);
+
+// Automatically load the car based on the initial value of carSelector when the page loads
+window.addEventListener("load", () => {
+  console.log(current_car)
+  load_current_car_model(current_car, scene, loader);
+});
+
+colorPicker.on("color:change", (color) => {
+  const hexColor = color.hexString;
+  if (!current_car_model) {
+    console.error("Car model is not loaded yet.");
+    return;
+  }
+  changeCarColor(current_car, current_car_model, hexColor);
 });

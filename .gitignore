@@ -1,0 +1,27 @@
+# Maven build output
+OOP/aplha001/target/
+OOP\aplha001\target
+
+# IDE-specific files (IntelliJ IDEA, Eclipse, VS Code)
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+.classpath
+.project
+.settings/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Environment or config files (if any are local-only)
+*.env
+*.local

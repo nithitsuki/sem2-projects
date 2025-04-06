@@ -1,10 +1,8 @@
 .bg-dark {  
-  background-color: rgba(0, 0, 0, 0.2) !important; /* Adjust opacity */
-  backdrop-filter: blur(2px); 
-  /* Adds a glass effect */
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(2px);
 }
 
-/* Main stuff */
 body {
   background-color: #333;
   color: white;
@@ -23,26 +21,24 @@ html {
   overflow-x: hidden;
 }
 
-/* the slideshow */
 .swiper {
   width: 100vw;
-  height: 100vh; /* Adjust '60px' to match your navbar height */
+  height: 100vh;
 }
 
 .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image fills the container while maintaining aspect ratio */
+  object-fit: cover;
 }
 
 img {
-  height: auto; /* Prevents unwanted scaling */
+  height: auto;
 }
 
-/* Those cars wooshing in  */
 .section-title {
   text-align: center;
-  font-size: 1.5rem; /* text-2xl */
+  font-size: 1.5rem;
   margin: 2rem 0;
 }
 
@@ -70,16 +66,16 @@ img {
 
 .car-title {
   text-align: center;
-  font-size: 1.5rem; /* text-2xl */
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
 .car-list {
-  margin-left: 4rem; /* ml-[4rem] */
-  color: #bbb; /* text-[#bbb] */
-  font-size: 1.125rem; /* text-lg */
-  list-style: disc; /* list-disc */
+  margin-left: 4rem;
+  color: #bbb;
+  font-size: 1.125rem;
+  list-style: disc;
 }
 
 /* Card Styles */
@@ -150,7 +146,6 @@ img {
   0% {
     transform: rotateZ(0deg);
   }
-
   100% {
     transform: rotateZ(360deg);
   }
@@ -159,10 +154,25 @@ img {
 .front {
   transform: rotateY(180deg);
   color: white;
+  position: relative;
 }
 
-.front .front-content {
+/* ✅ Set background image using CSS instead of <img> */
+.front .img {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* ✅ Text visible on top */
+.front-content {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
   padding: 10px;
@@ -189,7 +199,7 @@ img {
 }
 
 .title {
-  font-size: 11px;
+  font-size: 14px; /* ⬅️ increased from 11px */
   max-width: 100%;
   display: flex;
   justify-content: space-between;
@@ -200,19 +210,23 @@ img {
 }
 
 .card-footer {
-  color: #ffffff88;
+  color: #ffffffcc; /* ⬅️ slightly brighter */
   margin-top: 5px;
-  font-size: 8px;
+  font-size: 12px; /* ⬆️ was 8px */
+  line-height: 1.4;
 }
 
-.front .img {
-  position: absolute;
+/* 🎯 Car Image Styling - legacy */
+.car-preview {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
 }
 
+/* Floating circles */
 .circle {
   width: 90px;
   height: 90px;
@@ -254,6 +268,3 @@ img {
     transform: translateY(0px);
   }
 }
-
-
-

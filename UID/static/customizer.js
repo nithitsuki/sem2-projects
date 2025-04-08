@@ -2,6 +2,12 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js"; // Import GLTFLoader directly
 import { RGBELoader } from "three/addons/loaders/RGBELoader.js"; // Import RGBELoader for HDRI
 import { OrbitControls } from "three/addons/controls/OrbitControls.js"; // Import OrbitControls
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { SMAAPass } from "three/addons/postprocessing/SMAAPass.js";
+
+
 
 //Default variables
 const cars = {
@@ -54,7 +60,7 @@ const cars = {
     default_color: "#ffffff",
   },
 };
-let garage_name = "static/3D-Models/parking_garage.glb";
+let garage_name = "static/3D-Models/garage.glb";
 let current_car = cars[document.getElementById("carSelector").value];
 
 // "3D" Models
@@ -71,8 +77,15 @@ const camera = new THREE.PerspectiveCamera(
 );
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x87ceeb); // Set a sky blue background color
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Softer shadows
+renderer.setClearColor(0x333333); // Set a sky blue background color
 document.body.appendChild(renderer.domElement);
+
+
+//effects
+const pmremGenerator = new THREE.PMREMGenerator(renderer);
+pmremGenerator.compileEquirectangularShader();
 
 // Add OrbitControls for camera interaction
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -82,18 +95,26 @@ controls.maxPolarAngle = Math.PI / 2.2;
 controls.minDistance = 4;
 controls.maxDistance = 6;
 
+let brightness = 1;
 // Lighting
-const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Soft white light
+const ambientLight = new THREE.AmbientLight(0xffffff, brightness); // Soft white light
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Bright directional light
-directionalLight.position.set(0, 3, 0); // Position the light
-scene.add(directionalLight);
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 10); // Bright directional light
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 10); // Bright directional light
+directionalLight1.castShadow = true;
+directionalLight2.castShadow = true;
+directionalLight1.position.set(5,0, 0); // Position the light
+directionalLight2.position.set(0,0, -5); // Position the light
+scene.add(directionalLight1);
+scene.add(directionalLight2);
 
+
+renderer.toneMappingExposure = 1; // Default is 1.0
 
 // Load HDRI Environment Map
 const rgbeLoader = new RGBELoader();
-rgbeLoader.load("static/HDR environment/creepy_bathroom_4k.hdr", (texture) => {
+rgbeLoader.load("static/HDR environment/satara_night_no_lamps_4k.hdr", (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping; // Use reflection mapping
   scene.environment = texture; // Apply the environment map to the scene
   texture.mapping = THREE.EquirectangularReflectionMapping;
@@ -101,6 +122,7 @@ rgbeLoader.load("static/HDR environment/creepy_bathroom_4k.hdr", (texture) => {
   scene.environment = texture;
   // Set the texture as the scene background
   scene.background = texture;
+  
 });
 
 // Camera Position
@@ -119,8 +141,16 @@ loader.load(
   (gltf) => {
     garageModel = gltf.scene;
     console.log("Garage model loaded:", garageModel); // Debug log
-    garageModel.position.set(0, 1.8, 0);
-    garageModel.scale.set(1, 1, 1); // Adjust scale if needed
+    garageModel.position.set(0, 1.3, 0);
+    garageModel.scale.set(2, 2, 2); // Adjust scale if needed
+    garageModel.rotation.y = - Math.PI / 2;
+    // garageModel.material.envMapIntensity = 0.5; // Lower = dimmer reflections
+    garageModel.traverse((child) => {
+      if (child.isMesh) {
+        child.receiveShadow = true;
+      }
+    });
+    
     scene.add(garageModel);
   },
   undefined,
@@ -133,8 +163,10 @@ loader.load(
 // const gridHelper = new THREE.GridHelper(10, 10);
 // gridHelper.position.y = -0.01;
 // scene.add(gridHelper);
-// const lightHelper = new THREE.DirectionalLightHelper(directionalLight, 1); // Size of the helper
-// scene.add(lightHelper);
+const lightHelper1 = new THREE.DirectionalLightHelper(directionalLight1, 1); // Size of the helper
+const lightHelper2 = new THREE.DirectionalLightHelper(directionalLight2, 1); // Size of the helper
+scene.add(lightHelper1);
+scene.add(lightHelper2);
 
 // IRO CONFIG START 
 const colorPicker = new iro.ColorPicker("#colorPickerContainer", {
@@ -161,6 +193,11 @@ function load_current_car_model(car, scene, loader) {
     (gltf) => {
       current_car_model = gltf.scene;
       console.log("Model loaded:", current_car_model);
+      current_car_model.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+        }
+      });
       current_car_model.scale.set(car.scale, car.scale, car.scale); // Adjust scale
       current_car_model.position.set(car.offset.x, car.offset.y, car.offset.z); // Adjust position
       scene.add(current_car_model);
@@ -258,6 +295,7 @@ function animate() {
   requestAnimationFrame(animate);
   controls.update(); // Update OrbitControls
   renderer.render(scene, camera);
+  // composer.render();
 }
 animate();
 

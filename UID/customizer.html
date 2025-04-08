@@ -31,7 +31,6 @@
       <div style="font-size: 16px; font-family: 'Great Vibes', cursive; color: gray;">Where Performance Meets Perfection.</div>
   </div>
 
-  <!-- Keyframes for Needle Animation -->
   <style>
       @keyframes sweep {
           from {
@@ -43,21 +42,15 @@
       }
   </style>
 
-  <!-- JavaScript for Fade-Out and Removal -->
   <script>
       function showLoadingScreen() {
         const container = document.getElementById('fadeContainer');
         const needle = document.getElementById('needle');
-        // Reset styles to show loading screen immediately
         container.style.display = 'flex';
         container.style.opacity = '1';
-
-        // Restart needle animation immediately
         needle.style.animation = 'none';
-        needle.offsetHeight; // Force reflow to restart animation
+        needle.offsetHeight;
         needle.style.animation = 'sweep 3s ease-in-out forwards';
-        
-        // Hide after 3 seconds
         setTimeout(() => {
             container.style.opacity = '0';
             setTimeout(() => {
@@ -69,7 +62,6 @@
   </script>
 </div>
 
-<!-- Just the navbar -->
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1 ">
     <div class="container-xxl">
@@ -113,20 +105,22 @@
     document.getElementById('carSelector').addEventListener('change', showLoadingScreen);
   </script>
   <div class="position-fixed top-50 end-0 translate-middle-y me-3">
-    <!-- Outer container styled with Bootstrap -->
     <div class="bg-secondary bg-opacity-75 rounded-3 p-3 shadow-sm" style="width: 240px;">
       <div id="colorPickerContainer" style="width: 300px; height: 300px;"></div>
     </div>
   </div>
 
+  <!--  BUTTON STARTS HERE  -->
+  <div style="position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+    <button class="customize-btn">Interior View</button>
+  </div>
+  
 
-    
-    <!-- Random ahh scripts that need to be imported  -->
-    <script src="static/libs/scripts/bootstrap.bundle.min.js"></script>
-    <script src="static/libs/scripts/aos.js"></script>
-    <!-- <script src="static/index.js"></script> -->
-    <script src="static/customizer.js" type="module"></script><script src="static/libs/scripts/iro.min.js"></script>
-    
-  </body>
+  <script src="static/libs/scripts/bootstrap.bundle.min.js"></script>
+  <script src="static/libs/scripts/aos.js"></script>
+  <script src="static/customizer.js" type="module"></script>
+  <script src="static/libs/scripts/iro.min.js"></script>
+
+</body>
 
 </html>

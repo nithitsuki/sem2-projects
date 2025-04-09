@@ -24,3 +24,4 @@ Thumbs.db
 # Environment or config files (if any are local-only)
 *.env
 *.local
+attendance.py

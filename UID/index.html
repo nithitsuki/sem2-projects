@@ -9,6 +9,8 @@
   <link href="static/libs/styles/aos.css" rel="stylesheet" />
   <link href="static/libs/styles/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <!-- Just the navbar -->
@@ -49,105 +51,118 @@
     </video>
   </div>
 </section>
+<!-- Video end -->
+    <!-- <br /><h1>Our Features</h1><br/> -->
 
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <!-- Hero Section -->
+<br>
 
-<script>
-  const player = new Plyr('#player', {
-    controls: [],
-  });
-  const videoContainer = document.getElementById('videoContainer');
+<section>
+  <h1>Precision. Power. Perfection.</h1>
+  <p>Welcome to Monza Motors — where innovation meets adrenaline. Our custom-built performance machines are engineered for those who crave more than just speed. They demand soul.</p>
+  <!-- <center><button>Explore Our Builds</button></center> -->
+</section>
 
-function handleScroll() {
-  const scrollY = window.scrollY;
-  // Shrink from 100% to 90% as scrollY goes from 0 to 300
-  const scale = Math.max(0.9, 1 - scrollY / 6000);
-  videoContainer.style.width = `${scale * 100}%`;
-}
+<!-- About Section -->
+<section>
+  <h2>Crafted for the Bold</h2>
+  <p>Every Monza Motors car is handcrafted from the ground up, blending cutting-edge engineering with timeless design. Whether you're tearing up the track or cruising the city streets, our machines deliver an unmatched driving experience.</p>
+</section>
 
-window.addEventListener('scroll', handleScroll);
+<!-- Featured Builds -->
+<section>
+  <h2>Signature Customs</h2>
+  <p>Our builds are a reflection of pure performance and personal expression. Here are just a few of our latest masterpieces:</p>
 
-window.addEventListener('load', () => {
-  videoContainer.style.transition = 'width 0.3s ease-out';
-});
-
-</script>
-
-  <body>
-    <br /><hr /><h1 class="section-title">Our Features</h1><hr /><br />
-
-    <div class="car-container justify-start">
-      <img src="static/imgs/cars-slideshow/Aston Martin Vulcan 15 fix.jpg" alt="Left-aligned Image" class="car-image"
-        data-aos="fade-right" data-aos-offset="0" />
-      <div class="car-details">
-        <h2 class="car-title">Custom Paintjob</h2>
-        <ul class="car-list">
-          <li>Select from official factory color palettes or create your own bespoke shade using our advanced color mixer.</li>
-          <li>Choose from a wide range of premium finishes, including matte, metallic, satin and many more!</li>
-          <li>Real-time lighting simulation shows how each color looks under different track and daylight conditions.</li>
-          <li>Exclusive custom color names and badging for clients who create their own unique shade.</li>
-         
-        </ul>
-      </div>
+  <div class="car-grid">
+    <div class="car-card">
+      <img src="./static/imgs/918/918flipcard.jpg" alt="Porsche 918 Spyder">
+      <p>Porsche 918 Spyder</p>
     </div>
+    <div class="car-card">
+      <img src="./static/imgs/ferrari/newberlinettaimage.jpg" alt="Ferrari F12 Berlinetta">
+      <p>Ferrari F12 Berlinetta</p>
+    </div>    <div class="car-card">
+      <img src="./static/imgs/vulcan/astonmartinflipcard.jpg" alt="Aston Martin Vulcan">
+      <p>Aston Martin Vulcan</p>
+    </div>
+    <div class="car-card">
+      <img src="./static/imgs/skyline/skylineblack.jpg" alt="Nissan Skyline GT-R R34">
+      <p>Nissan Skyline GT-R R34</p>
+    </div>
+    <div class="car-card">
+      <img src="./static/imgs/RR/RRblack.jpg" alt="Rolls-Royce Ghost">
+      <p>Rolls-Royce Ghost</p>
+    </div>
+    <div class="car-card">
+      <img src="./static/imgs/p1/p1.jpg" alt="McLaren P1">
+      <p>McLaren P1</p>
+    </div>
+  </div>
+  <center><button>Explore Our Builds</button></center>
 
-    <div class="car-container justify-end">
-      <div class="car-details">
-        <h2 class="car-title">View and Design interiors</h2>
-        <ul class="car-list">
-          <li>Step inside a fully immersive 3D interior configurator and explore every detail from the driver’s perspective</li>
-          <li>Choose from factory color themes or build your own unique interior palette.</li>
-          <li>Select custom steering wheel designs, paddle shifter finishes, and racing harness colors.</li>
-          <li>Save and compare multiple interior combinations with easy toggles and screenshot export.</li>
-          <li>Preview tech features like digital cluster displays, ambient lighting zones, and touchscreen interface skins. (Coming soon)</li>
-        </ul>
-      </div>
-      <img src="static/imgs/cars-slideshow/f12-berlinetta fixed.webp" alt="Right-aligned Image" class="car-image"
-        data-aos="fade-left" data-aos-offset="0" />
-    </div>
-  
-    <div class="car-container justify-start">
-      <img src="static/imgs/cars-slideshow/mazda-mx5-mk1-headlights-pop-up-fixd.webp" alt="Left-aligned Image"
-        class="car-image" data-aos="fade-right" data-aos-offset="0" />
-      <div class="car-details">
-        <h2 class="car-title">Get to know more about your beasts</h2>
-        <ul class="car-list">
-          <li>Dive into detailed car stats including horsepower, torque, 0–60 acceleration, top speed and more.</li>
-          <li>Rev the engine virtually and feel the roar of that V12/V8 through immersive audio.</li>
-          <li>Real-time lighting simulation shows how each color looks under different track and daylight conditions.</li>
-          <li>Discover the story behind each machine—heritage, motorsport roots and iconic design inspiration.</li>
-          
-        </ul>
-      </div>
-    </div>
+  <!-- <button>View All Builds</button> -->
+</section>
 
-    <div class="car-container justify-end">
-      <div class="car-details">
-        <h2 class="car-title">Features coming soon</h2>
-        <ul class="car-list">
-          <li>Toggle between different drive modes and see how suspension, traction and exhaust behavior changes.</li>
-          <li>Customize seats, stitching, dashboard trim, headliner and more with a wide range of premium materials like Alcantara, carbon fiber, brushed aluminum, and fine leather.</li>
-          <li>Add exclusive touches like embroidered logos, contrast piping and personalized nameplates.</li>
-          <li>View aerodynamic flow simulations to see how the car slices through the air.</li>
-          <li>Add optional upgrades like carbon-ceramic brakes, titanium exhausts or aero kits.</li>
-        </ul>
-      </div>
-      <img src="static/imgs/cars-slideshow/naran_hc_fixd.webp" alt="Right-aligned Image" class="car-image"
-        data-aos="fade-left" data-aos-offset="0" />
-    </div>
-    <!-- Extra scroll space at the bottom -->
-    <!-- Extra scroll space at the bottom -->
-    <div style="height: 100px; background-color: #2a2a2a; display: flex; justify-content: center; align-items: center;">
-      <a href="about-us.html" style="color: white; font-size: 24px; text-decoration: none;">About Us</a>
-    </div>
 
-    
+<!-- Sound Experience -->
+<section>
+  <h2>Feel the Engine</h2>
+  <p>Experience the raw sound of power. Put on your headphones and listen to the engine roars of our custom machines — each one uniquely tuned to perfection.</p>
+  <center><button>Listen Now</button></center>
+</section>
+
+<!-- In-Person Only -->
+<section>
+  <h2>Custom Built. One-on-One.</h2>
+  <p>We don't believe in online orders. At Monza Motors, every car is a one-of-one, built in person with you, for you. Schedule a visit to meet our team, explore options, and bring your dream car to life.</p>
+  <center><button>Book a Visit</button></center>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p style="margin-bottom: 0px; margin-top: 6%;">© 2025 Monza Motors. All rights reserved.</p>
+  <p>Follow us on Instagram, YouTube, and stay updated for new releases.</p>
+</footer>
 
     <!-- Random ahh scripts that need to be imported  -->
-    <!-- <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script> -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
     <script src="static/libs/scripts/bootstrap.bundle.min.js"></script>
     <script src="static/libs/scripts/aos.js"></script>
     <script src="static/index.js"></script>
+    <script>
+      const player = new Plyr('#player', {
+        controls: [],
+      });
+      const videoContainer = document.getElementById('videoContainer');
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      // Shrink from 100% to 90% as scrollY goes from 0 to 300
+      const scale = Math.max(0.9, 1 - scrollY / 6000);
+      videoContainer.style.width = `${scale * 100}%`;
+    }
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', () => {
+      videoContainer.style.transition = 'width 0.3s ease-out';
+    });
+    </script>
+    <script>
+        const fadeEls = document.querySelectorAll("h1, h2, h3, p");
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Optional: stop observing once visible
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+
+        fadeEls.forEach(el => observer.observe(el));
+          </script>
   </body>
 
 </html>

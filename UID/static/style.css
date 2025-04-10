@@ -2,8 +2,6 @@
   background-color: rgba(0, 0, 0, 0.2) !important;
   backdrop-filter: blur(2px);
 }
-
-
 .video-section {
   width: 100%;
   display: flex;
@@ -13,13 +11,17 @@
 
 .video-container {
   width: 100%;
-  max-width: 100%; /* or your preferred max width */
+  max-width: 100%; /* optional max width */
+  transition: width 0.3s ease;
 }
 
 .video-container video {
   width: 100%;
   height: auto;
+  display: block;
+  border-radius: 20px;
 }
+
 
 #player {
   width: 100%;
@@ -81,6 +83,7 @@ img {
 .car-image {
   width: 50%;
   height: auto;
+  border-radius: 1%;
 }
 
 .car-details {

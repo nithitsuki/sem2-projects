@@ -12,7 +12,7 @@ import { SMAAPass } from "three/addons/postprocessing/SMAAPass.js";
 //Default variables
 const cars = {
   ferrariF12: {
-    path: "static/3D-Models/2013_ferrari_f12_berlinetta.glb",
+    path: "static/3D-Models/cars/2013_ferrari_f12_berlinetta.glb",
     exterior_name:
       "bodyKit0_Paint_Geo_lodA_Ferrari_F12berlinetta_2014Paint_Material_0",
     scale: 100,
@@ -20,15 +20,15 @@ const cars = {
     default_color: "#ffffff",
   },
   porsche918: {
-    path: "static/3D-Models/2015_porsche_918_spyder.glb",
+    path: "static/3D-Models/cars/2015_porsche_918_spyder.glb",
     exterior_name:
       "pKit1_Paint_Geo_lodA_Kit1_Paint_Geo_lodA_Porsche_918SpyderRewardRecycled_2015Paint_Material_pPorsche_918SpyderRewardRecycled_2015Paint_Material1_0",
     scale: 100,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Porsche 918
     default_color: "#ffffff",
   },
-  naranHyperCoupe: {
-    path: "static/3D-Models/2020_naran_hyper_coupe.glb",
+  nissan_skyline_r34_gtr: {
+    path: "static/3D-Models/cars/nissan_skyline_r34_gtr.glb",
     exterior_name:
       "Naran_Hyper_Coupe_carobjcarpaint_chassis_UV2_Untitled_030_Default_Carpaint_0",
     scale: 100,
@@ -36,21 +36,21 @@ const cars = {
     default_color: "#ffffff",
   },
   astonMartinVulcan: {
-    path: "static/3D-Models/aston_martin_vulcan.glb",
+    path: "static/3D-Models/cars/aston_martin_vulcan.glb",
     exterior_name: "LOD_A_HOOD_mm_ext001_CAR_PAINT_0",
     scale: 1,
     offset: { x: 0, y: 0, z: 0 }, // Offset values for Aston Martin Vulcan
     default_color: "#ffffff",
   },
-  mazdaMiata: {
-    path: "static/3D-Models/mazda_miata_mx-5.glb",
+  nuclide: {
+    path: "static/3D-Models/cars/nuclide.glb",
     exterior_name: "RLA_miata_headlight_R_popup_RRpbrPaintPrimary_0",
     scale: 1,
     offset: { x: 0, y: -0.1, z: 0 }, // Offset values for Mazda Miata
     default_color: "#ffffff",
   },
   rollsRoyceGhost: {
-    path: "static/3D-Models/rolls-royce_ghost.glb",
+    path: "static/3D-Models/cars/rolls-royce_ghost.glb",
     exterior_name: {
       1: "rrghost_body_rrghost_paint_0",
       2: "rrghost_fender_R_b_rrghost_paint_0",
@@ -60,7 +60,7 @@ const cars = {
     default_color: "#ffffff",
   },
 };
-let garage_name = "static/3D-Models/garage.glb";
+let garage_name = "static/3D-Models/garages/home-made-garage.glb";
 let current_car = cars[document.getElementById("carSelector").value];
 
 // "3D" Models
@@ -92,8 +92,8 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Smooth movement
 controls.minPolarAngle = 0;
 controls.maxPolarAngle = Math.PI / 2.2;
-controls.minDistance = 4;
-controls.maxDistance = 6;
+controls.minDistance = 2.7;
+controls.maxDistance = 5.3;
 
 let brightness = 1;
 // Lighting
@@ -101,14 +101,17 @@ const ambientLight = new THREE.AmbientLight(0xffffff, brightness); // Soft white
 scene.add(ambientLight);
 
 const directionalLight1 = new THREE.DirectionalLight(0xffffff, 10); // Bright directional light
-const directionalLight2 = new THREE.DirectionalLight(0xffffff, 10); // Bright directional light
-directionalLight1.castShadow = true;
-directionalLight2.castShadow = true;
-directionalLight1.position.set(5,0, 0); // Position the light
-directionalLight2.position.set(0,0, -5); // Position the light
+// const directionalLight2 = new THREE.DirectionalLight(0xffffff, 10); // Bright directional light
+// directionalLight1.castShadow = true;
+// directionalLight2.castShadow = true;
+directionalLight1.position.set(0,5, 0); // Position the light
+// directionalLight2.position.set(0,0, -5); // Position the light
 scene.add(directionalLight1);
-scene.add(directionalLight2);
-
+// scene.add(directionalLight2);
+const lightHelper1 = new THREE.DirectionalLightHelper(directionalLight1, 1); // Size of the helper
+// const lightHelper2 = new THREE.DirectionalLightHelper(directionalLight2, 1); // Size of the helper
+scene.add(lightHelper1);
+// scene.add(lightHelper2);
 
 renderer.toneMappingExposure = 1; // Default is 1.0
 
@@ -163,10 +166,6 @@ loader.load(
 // const gridHelper = new THREE.GridHelper(10, 10);
 // gridHelper.position.y = -0.01;
 // scene.add(gridHelper);
-const lightHelper1 = new THREE.DirectionalLightHelper(directionalLight1, 1); // Size of the helper
-const lightHelper2 = new THREE.DirectionalLightHelper(directionalLight2, 1); // Size of the helper
-scene.add(lightHelper1);
-scene.add(lightHelper2);
 
 // IRO CONFIG START 
 const colorPicker = new iro.ColorPicker("#colorPickerContainer", {

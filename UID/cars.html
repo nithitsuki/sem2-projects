@@ -4,244 +4,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monza Motors</title>
-  <link rel="stylesheet" href="static/libs/styles/swiper-bundle.min.css" />
-  <link href="static/libs/styles/aos.css" rel="stylesheet" />
-  <link href="static/libs/styles/bootstrap.min.css" rel="stylesheet">
+  <title>Monza Motors – Cars</title>
+  <link rel="stylesheet" href="static/libs/styles/bootstrap.min.css" />
   <link rel="stylesheet" href="static/style.css" />
 </head>
 
-<!-- Navbar -->
-<header>
+<body>
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1">
     <div class="container-xxl">
-      <a class="navbar-brand" href="/index.html"><b>Monza Motors</b></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#"><b>Monza Motors</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cars.html">Cars</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="customizer.html">Customizer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about-us.html">About Us</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Cars</a></li>
+          <li class="nav-item"><a class="nav-link" href="customizer.html">Customizer</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
         </ul>
       </div>
     </div>
   </nav>
-</header>
 
-<div class="p-5"></div>
-
-<!-- Car Models Section -->
-<body>
-  <div class="container mt-0">
-    <h1 class="text-center mb-5">Our Car Models</h1>
-
-    <div class="row justify-content-end">
-      <!-- Car Cards with Hover Tracker -->
-      
-      
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="content">
-            <!-- Back of the card -->
-            <div class="back">
-              <div class="back-content">
-                <strong>Vulcan</strong>
-              </div>
-            </div>
-      
-            <!-- Front of the card -->
-            <div class="front">
-              <!-- Image as background -->
-              <div class="img" style="background-image: url('static/imgs/cars-slideshow/astonmartinflipcard.jpg');"></div>
-      
-              <!-- Text content -->
-              <div class="front-content">
-                <small class="badge">Track car</small>
-                <div class="description">
-                  <div class="title">
-                    <p><strong>Aston Martin</strong></p>
-                  </div>
-                  <p class="card-footer">
-                    V12 Engine | The British beast—820 HP unleashed with precision. Hits 100 km/h in 2.9s, topping out at 360 km/h. A symphony of speed, power, and raw track-bred aggression.
-
-
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="content">
-            <div class="back">
-              <div class="back-content">
-                <strong>F12 Berlinetta</strong>
-              </div>
-            </div>
-            <div class="front">
-              <div class="img">
-                <img src="static/imgs/cars-slideshow/berlinettaflipcard.jpg" alt="F12 Berlinetta" class="car-preview" />
-                <div class="circle"></div>
-                <div class="circle" id="right"></div>
-                <div class="circle" id="bottom"></div>
-              </div>
-              <div class="front-content">
-                <small class="badge">Supercar</small>
-                <div class="description">
-                  <div class="title">
-                    <p><strong>Ferrari</strong></p>
-                  </div>
-                  <p class="card-footer">
-                    V12 Engine | The Italian Stallion—730 HP of pure Rossi fury. 0–100 km/h in just 3.1s, with a top speed of 340 km/h. It’s not just a car—it’s a symphony of power, passion, and precision.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Car 3: McLaren 720S -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="content">
-            <div class="back">
-              <div class="back-content">
-                <strong>S Hyper Coupe</strong>
-              </div>
-            </div>
-            <div class="front">
-              <div class="img">
-                <img src="static/imgs/cars-slideshow/naranhyperflipcard.jpg" alt="Naran S" class="car-preview" />
-                <div class="circle"></div>
-                <div class="circle" id="right"></div>
-                <div class="circle" id="bottom"></div>
-              </div>
-              <div class="front-content">
-                <small class="badge">Hypercar</small>
-                <div class="description">
-                  <div class="title">
-                    <p><strong>Naran</strong></p>
-                  </div>
-                  <p class="card-footer">V8 Engine | English Roadrunner with 1048 HP. Hits 100 km/h in 2.6s—an untamed symphony of fury and finesse.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="content">
-            <div class="back">
-              <div class="back-content">
-                <strong>MX-5 Miata</strong>
-              </div>
-            </div>
-            <div class="front">
-              <div class="img">
-                <img src="static/imgs/cars-slideshow/mazdaflipcard.jpg" alt="Mazda Miata" class="car-preview" />
-                <div class="circle"></div>
-                <div class="circle" id="right"></div>
-                <div class="circle" id="bottom"></div>
-              </div>
-              <div class="front-content">
-                <small class="badge">Sports Car</small>
-                <div class="description">
-                  <div class="title">
-                    <p><strong>Mazda</strong></p>
-                  </div>
-                  <p class="card-footer">Inline-4 | The featherweight king from Japan—181 HP of pure driving joy. RWD, razor-sharp handling, and a drop-top that delivers smiles per gallon. 0–100 in 5.7s.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="content">
-            <div class="back">
-              <div class="back-content">
-                <strong>918 Spyder</strong>
-              </div>
-            </div>
-            <div class="front">
-              <div class="img">
-                <img src="static/imgs/cars-slideshow/918flipcard.jpg" alt="Porsche 918" class="car-preview" />
-                <div class="circle"></div>
-                <div class="circle" id="right"></div>
-                <div class="circle" id="bottom"></div>
-              </div>
-              <div class="front-content">
-                <small class="badge">Hypercar</small>
-                <div class="description">
-                  <div class="title">
-                    <p><strong>Porsche</strong></p>
-                  </div>
-                  <p class="card-footer">The Porsche 918 Spyder is a hybrid masterpiece — fusing a roaring V8 with electric finesse to unleash 887 horsepower. With a 0–100 km/h launch in just 2.5 seconds...</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Car 6: Bugatti Chiron -->
-      <!-- Car 6: Rolls-Royce Ghost -->
-<div class="col-md-4 mb-4">
-  <div class="card">
-    <div class="content">
-      <div class="back">
-        <div class="back-content">
-          <strong>Ghost</strong>
-        </div>
-      </div>
-      <div class="front">
-        <div class="img">
-          <img src="static/imgs/cars-slideshow/ghostflipcard,jpg.jpg" alt="Rolls Royce Ghost" class="car-preview" />
-          <div class="circle"></div>
-          <div class="circle" id="right"></div>
-          <div class="circle" id="bottom"></div>
-        </div>
-        <div class="front-content">
-          <small class="badge">Luxury Car</small>
-          <div class="description">
-            <div class="title">
-              <p><strong>Rolls Royce</strong></p>
-            </div>
-            <p class="card-footer">"The Rolls-Royce Ghost is elegance on wheels — powered by a whisper-quiet 6.75L V12 engine delivering 563 horsepower. It glides from 0–100 km/h in just 4.6 seconds all while sipping tea.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Car Showcase Sections -->
+  <section class="car-section" style="background-image: url('static/imgs/ferrari/newcarberny.jpg');">
+    <div class="info-box">
+      <h1>Ferrari F12 Berlinetta</h1>
+      <p>730 HP of Italian fury. 0–100 km/h in 3.1s. A perfect blend of speed, passion, and precision.</p>
+      <button class="read-more">Read More</button>
     </div>
-  </div>
-</div>
+  </section>
 
+  <section class="car-section" style="background-image: url('static/imgs/ferrari/vulcannew.jpg');">
+    <div class="info-box">
+      <h1>Aston Martin Vulcan</h1>
+      <p>The British beast—820 HP unleashed with precision. 0–100 km/h in 2.9s, topping at 360 km/h.</p>
+      <button class="read-more">Read More</button>
     </div>
-  </div>
+  </section>
 
-  <!-- Bootstrap Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./static/index.js"></script>
+  <section class="car-section" style="background-image: url('static/imgs/cars/mclaren-p1.jpg');">
+    <div class="info-box">
+      <h1>McLaren P1</h1>
+      <p>903 HP hybrid hypercar. Lightning-fast and track-tuned. A modern British masterpiece.</p>
+      <button class="read-more">Read More</button>
+    </div>
+  </section>
 
+  <section class="car-section" style="background-image: url('static/imgs/cars/porsche-918.jpg');">
+    <div class="info-box">
+      <h1>Porsche 918 Spyder</h1>
+      <p>Hybrid monster with 887 HP. A V8 & electric dream that hits 0–100 km/h in just 2.5s.</p>
+      <button class="read-more">Read More</button>
+    </div>
+  </section>
+
+  <section class="car-section" style="background-image: url('static/imgs/cars/nissan-r34.jpg');">
+    <div class="info-box">
+      <h1>Nissan Skyline R34 GT-R</h1>
+      <p>Japanese legend. Twin-turbo inline-6 with AWD grip. Forever a street racing icon.</p>
+      <button class="read-more">Read More</button>
+    </div>
+  </section>
+
+  <section class="car-section" style="background-image: url('static/imgs/cars/rolls-ghost.jpg');">
+    <div class="info-box">
+      <h1>Rolls Royce Ghost</h1>
+      <p>Elegance redefined with a 563 HP V12. Silent. Smooth. Sophisticated. 0–100 in 4.6s.</p>
+      <button class="read-more">Read More</button>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="static/libs/scripts/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

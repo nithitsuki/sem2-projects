@@ -25,3 +25,29 @@ Thumbs.db
 *.env
 *.local
 attendance.py
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+monza-motors-react/node_modules
+monza-motors-react/dist
+monza-motors-react/.pnp
+monza-motors-react/.pnp.js
+
+# testing
+monza-motors-react/coverage
+
+# production
+# /build
+
+# misc
+monza-motors-react/.DS_Store
+monza-motors-react/.env.local
+monza-motors-react/.env.development.local
+monza-motors-react/.env.test.local
+monza-motors-react/.env.production.local
+
+monza-motors-react/npm-debug.log*
+monza-motors-react/yarn-debug.log*
+monza-motors-react/yarn-error.log*
+

@@ -51,3 +51,6 @@ monza-motors-react/npm-debug.log*
 monza-motors-react/yarn-debug.log*
 monza-motors-react/yarn-error.log*
 
+
+# Local Netlify folder
+.netlify
